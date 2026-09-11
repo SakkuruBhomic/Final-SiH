@@ -1,59 +1,28 @@
 {
-  "version": 2,
   "cleanUrls": true,
   "trailingSlash": false,
-  "routes": [
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/citizen", "destination": "/citizen.html" },
+    { "source": "/authority", "destination": "/authority.html" },
+    { "source": "/authority-login", "destination": "/authority-login.html" },
+    { "source": "/portal", "destination": "/portal.html" },
+    { "source": "/get-started", "destination": "/get-started.html" }
+  ],
+  "headers": [
     {
-      "src": "/sw.js",
-      "dest": "/sw.js",
-      "headers": {
-        "cache-control": "no-cache, no-store, must-revalidate",
-        "Service-Worker-Allowed": "/"
-      }
+      "source": "/sw.js",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" },
+        { "key": "Service-Worker-Allowed", "value": "/" }
+      ]
     },
     {
-      "src": "/data/(.*)",
-      "dest": "/data/$1"
-    },
-    {
-      "src": "/assets/(.*)",
-      "dest": "/assets/$1"
-    },
-    {
-      "src": "/css/(.*)",
-      "dest": "/css/$1"
-    },
-    {
-      "src": "/js/(.*)",
-      "dest": "/js/$1"
-    },
-    {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
-    },
-    {
-      "src": "/citizen",
-      "dest": "/citizen.html"
-    },
-    {
-      "src": "/authority",
-      "dest": "/authority.html"
-    },
-    {
-      "src": "/authority-login",
-      "dest": "/authority-login.html"
-    },
-    {
-      "src": "/portal",
-      "dest": "/portal.html"
-    },
-    {
-      "src": "/get-started",
-      "dest": "/get-started.html"
-    },
-    {
-      "src": "/",
-      "dest": "/index.html"
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, POST, OPTIONS, PATCH" }
+      ]
     }
   ]
 }

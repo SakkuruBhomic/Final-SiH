@@ -2,14 +2,11 @@
   "name": "risk2rescue",
   "version": "2.0.0",
   "description": "Risk2Rescue — AI-Powered Disaster Management, Multi-Hazard GIS Intelligence, and Authority Incident Command System",
-  "main": "server.js",
-  "type": "commonjs",
   "scripts": {
-    "build": "echo 'Static build ready'",
-    "start": "node server.js",
-    "dev": "node server.js",
-    "serve": "node server.js",
-    "test": "node server.js --check"
+    "start": "node local-server.js",
+    "dev": "node local-server.js",
+    "serve": "node local-server.js",
+    "test": "node local-server.js --check"
   },
   "keywords": [
     "disaster-management",
